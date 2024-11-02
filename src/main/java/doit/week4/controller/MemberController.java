@@ -47,7 +47,7 @@ public class MemberController {
 
         try{
             MemberResponse memberResponse = memberService.getMember(memberId);
-            return ResponseEntity.ok("회원 정보 :\n" + memberResponse);
+            return ResponseEntity.ok("회원 정보 : \n" + memberResponse);
 
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
