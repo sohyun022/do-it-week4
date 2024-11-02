@@ -2,6 +2,7 @@ package doit.week4.service;
 
 import doit.week4.controller.dto.MemberRequest;
 import doit.week4.controller.dto.MemberResponse;
+import doit.week4.exception.DuplicateEmailException;
 import doit.week4.repository.Member;
 import doit.week4.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +40,7 @@ public class MemberServiceImpl implements MemberService {
     public void joinMember(MemberRequest memberRequest) {
 
         if (memberRepository.existsByEmail(memberRequest.getEmail())) {
-            throw new IllegalStateException("이미 존재하는 이메일입니다.");
+            throw new DuplicateEmailException("이미 존재하는 이메일입니다.");
         }
 
         String encodedPassword = passwordEncoder.encode(memberRequest.getPassword());
