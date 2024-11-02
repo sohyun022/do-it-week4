@@ -1,0 +1,63 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# Ignore build files and directories
+/build/
+target/
+
+# Ignore IDE and OS-specific files
+.idea/
+*.class
+
+# Ignore log files and temporary files
+*.log
+*.tmp
+
+# Ignore environment variables and secrets
+.env
+*.env
+
+# Ignore dependencies
+node_modules/
+*.jar
+
+# Ignore deployment files
+.gradle/
+
+# Ignore application properties
+application.properties
