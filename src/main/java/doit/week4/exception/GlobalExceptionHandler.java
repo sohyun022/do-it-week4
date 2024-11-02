@@ -10,15 +10,21 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException e) {
-        return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
-                .body(e.getMessage());
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public String handleIllegalArgumentException(IllegalArgumentException e) {
+        return e.getMessage();
+    }
+
+    @ExceptionHandler(DuplicateEmailException.class) //해당 클래스의 자손들만 처리하겠다는 뜻
+    @ResponseStatus(HttpStatus.CONFLICT) // response entity에 상태를 저장하는 것 대신 response status를 쓸 수도 있음
+    public String handleDuplicateEmailException(DuplicateEmailException e) {
+        return e.getMessage();
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public String handleException(Exception e) {
-        return "예상치 못한 오류가 발생했습니다.";
+        return e.getMessage();
     }
+      
 }
